@@ -45,6 +45,7 @@ public class Neighbour {
         this.favorite = favorite;
     }
 
+
     public long getId() {
         return id;
     }
