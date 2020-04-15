@@ -28,7 +28,6 @@ public class NeighbourFavoriteFragment extends Fragment {
     private List<Neighbour> mNeighboursFavorite;
     private RecyclerView mRecyclerView;
 
-
     /**
      * Create and return a new instance
      * @return @{@link NeighbourFavoriteFragment}
