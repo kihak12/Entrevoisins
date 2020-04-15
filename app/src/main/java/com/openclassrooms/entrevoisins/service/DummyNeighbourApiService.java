@@ -1,12 +1,8 @@
 package com.openclassrooms.entrevoisins.service;
 
-import android.content.Context;
-
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourFavoriteFragment;
 
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
 
 /**
@@ -30,20 +26,16 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
 
     @Override
-    public List getNeighboursFavorite() {
-        List<Neighbour> neighboursFavoriteList = new ArrayList<Neighbour>(neighbours);
-
+    public List<Neighbour> getNeighboursFavorite() {
+        List<Neighbour> neighboursFavoriteList = new ArrayList<Neighbour>();
 
         for (int i = 0; i< neighbours.size(); i++)
         {
             neighbours.get(i);
-
-            if(neighbours.get(i).isFavorite())
+            if (neighbours.get(i).isFavorite())
             {
                 neighboursFavoriteList.add(neighbours.get(i));
             }
-
-            else continue;
 
         }
 
