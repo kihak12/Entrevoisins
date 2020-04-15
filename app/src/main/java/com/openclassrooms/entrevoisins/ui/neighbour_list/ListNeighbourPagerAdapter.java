@@ -10,7 +10,7 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
         super(fm);
     }
 
-   /*@Override
+   @Override
     public Fragment getItem(int position){
         switch (position){
             case 0 : return NeighbourFragment.newInstance();
@@ -20,17 +20,17 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
             default: return null;
         }
     }
-*/
+
     /**
      * getItem is called to instantiate the fragment for the given page.
      * @param position
      * @return
      */
-    @Override
+    /*@Override
     public Fragment getItem(int position) {
         return NeighbourFavoriteFragment.newInstance();
 
-    }
+    }*/
 
 
     /**
