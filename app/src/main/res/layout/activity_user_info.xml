@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.neighbour_list.UserInfo">
+    tools:context=".ui.neighbour_list.UserInfo"
+    android:background="@color/background">
 
     <Toolbar
         android:layout_width="wrap_content"
@@ -13,15 +14,13 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/item_list_avatar"
-        android:layout_width="213dp"
-        android:layout_height="162dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:id="@+id/item_avatar"
+        android:layout_width="418dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
