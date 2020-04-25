@@ -8,7 +8,6 @@ import android.widget.Toolbar;
 
 import com.openclassrooms.entrevoisins.R;
 
-import butterknife.BindView;
 
 
 public class UserInfo extends AppCompatActivity {
@@ -21,6 +20,7 @@ public class UserInfo extends AppCompatActivity {
 
         Toolbar returnToMainMenu = (Toolbar) findViewById(R.id.returnToMainMenu);
         ActionBar ab = getSupportActionBar();
+
 
     }
 
