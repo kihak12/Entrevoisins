@@ -31,11 +31,11 @@
         android:id="@+id/mainMenu"
         android:layout_width="41dp"
         android:layout_height="24dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:background="@color/transparent"
         android:src="@drawable/arrow_back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,7 +47,6 @@
         android:text="@string/user"
         android:textSize="30sp"
         android:textColor="@color/white"
-        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/item_avatar"
         app:layout_constraintStart_toStartOf="@+id/item_avatar"
         app:layout_constraintTop_toTopOf="parent"
@@ -55,30 +54,64 @@
 
     <LinearLayout
         android:id="@+id/emplacement1"
-        android:layout_width="330dp"
-        android:layout_height="190dp"
+        android:layout_width="345dp"
+        android:layout_height="175dp"
         android:background="@color/white"
         android:gravity="center"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_avatar"
-        app:layout_constraintVertical_bias="0.087" />
+        app:layout_constraintVertical_bias="0.087">
+
+        <TextView
+            android:layout_width="329dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:paddingRight="220dp"
+            android:text="@string/user"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/emplacement2"
-        android:layout_width="330dp"
+        android:layout_width="345dp"
         android:layout_height="130dp"
         android:layout_marginTop="25dp"
         android:background="@color/white"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emplacement1" />
+        app:layout_constraintTop_toBottomOf="@+id/emplacement1"
+        app:layout_constraintVertical_bias="0.0">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingRight="130dp"
+            android:text="@string/about_me"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_gravity="top"
+            android:padding="6dp"
+            android:text="@string/info_me"
+            android:textSize="14sp" />
+
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>
