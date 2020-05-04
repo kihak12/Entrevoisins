@@ -20,20 +20,22 @@
 
     <ImageView
         android:id="@+id/item_avatar"
-        android:layout_width="410dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
         android:background="@drawable/avatar_user"
+        android:cropToPadding="@drawable/avatar_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/mainMenu"
-        android:layout_width="41dp"
-        android:layout_height="24dp"
+        android:layout_width="40dp"
+        android:layout_height="32dp"
         android:layout_marginTop="16dp"
         android:background="@color/transparent"
-        android:src="@drawable/arrow_back"
+        android:src="?attr/actionModeCloseDrawable"
+        android:tint="#F6F6F6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,9 +57,12 @@
 
     <LinearLayout
         android:id="@+id/emplacement1"
-        android:layout_width="345dp"
+        android:layout_width="match_parent"
         android:layout_height="170dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="33dp"
         android:background="@color/white"
+        android:baselineAligned="false"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,17 +74,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginRight="120dp"
             android:text="@string/user"
-            android:textSize="25sp"
-            android:layout_marginRight="120dp"/>
+            android:textSize="25sp" />
 
         <ImageView
             android:id="@+id/logo_1"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:layout_gravity="left|end"
-            android:src="@drawable/ic_account"
-            android:layout_marginLeft="12dp"/>
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/ic_account" />
 
         <TextView
             android:layout_width="210dp"
