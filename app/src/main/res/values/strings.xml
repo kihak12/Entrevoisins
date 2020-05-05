@@ -6,4 +6,7 @@
     <string name="user">Caroline</string>
     <string name="about_me">A propos de moi</string>
     <string name="info_me">Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m accompagner !J aime les jeux de cartes tels la belote et le tarot..</string>
+    <string name="location">Saint pierre du mont a 5km</string>
+    <string name="phone_number">+33 6 86 57 90 14</string>
+    <string name="link_fb">www.facebook.com/</string>
 </resources>
