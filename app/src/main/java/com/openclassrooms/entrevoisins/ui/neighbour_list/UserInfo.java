@@ -12,6 +12,7 @@ import android.widget.Toolbar;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
+import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 
 
 public class UserInfo extends AppCompatActivity {
@@ -29,14 +30,15 @@ public class UserInfo extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.hide();
 
+
         this.mainMenu = findViewById(R.id.mainMenu);
 
         Intent intent = getIntent();
 
-
             long userId;
             if (intent.hasExtra("userId"));
-            userId = intent.getLongExtra("userId", 12);
+            userId = intent.getLongExtra("userId", 6);
+
 
 
         mainMenu.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +51,8 @@ public class UserInfo extends AppCompatActivity {
             }
         });
 
+
     }
+
 
 }

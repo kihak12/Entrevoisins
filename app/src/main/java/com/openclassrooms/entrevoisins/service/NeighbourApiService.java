@@ -31,4 +31,7 @@ public interface NeighbourApiService {
      */
     void createNeighbour(Neighbour neighbour);
 
+
+    Neighbour getNeighbourById(long userId);
+
 }
