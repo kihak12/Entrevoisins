@@ -37,7 +37,7 @@ public class UserInfo extends AppCompatActivity {
 
             long userId;
             if (intent.hasExtra("userId"));
-            userId = intent.getLongExtra("userId", 6);
+            userId = intent.getLongExtra("userId", 2);
 
 
 

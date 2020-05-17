@@ -60,7 +60,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     }
 
     public Neighbour getNeighbourById(long userId){
-        long user = userId;
 
         for (int i = 0; i< neighbours.size(); i++){
 
