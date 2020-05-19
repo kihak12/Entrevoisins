@@ -23,7 +23,6 @@ public class UserInfo extends AppCompatActivity {
 
     private ImageButton mainMenu;
     private NeighbourApiService mApiService;
-    private List<Neighbour> mNeighbours;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
