@@ -14,12 +14,16 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class UserInfo extends AppCompatActivity {
 
 
     private ImageButton mainMenu;
-
+    private NeighbourApiService mApiService;
+    private List<Neighbour> mNeighbours;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,29 +34,33 @@ public class UserInfo extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.hide();
 
-
         this.mainMenu = findViewById(R.id.mainMenu);
-
-        Intent intent = getIntent();
-
-            long userId;
-            if (intent.hasExtra("userId"));
-            userId = intent.getLongExtra("userId", 2);
-
-
 
         mainMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mainReturn = new Intent(getApplicationContext(), ListNeighbourActivity.class);
-                startActivity(mainReturn);
                 finish();
-
             }
         });
 
+        Intent intent = getIntent();
+        long userId = intent.getLongExtra("userId", 0);
+        mApiService.getNeighbourById(userId);
+
+
+
+        //String name = mNeighbours.toString();
+        String name = "Jeff";
+
+        TextView nameView1 = (TextView) findViewById(R.id.textView1);
+        nameView1.setText(name);
+
+        TextView nameView2 = (TextView) findViewById(R.id.textView2);
+        nameView2.setText(name);
+
+
+
+
 
     }
-
-
 }
