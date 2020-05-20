@@ -61,15 +61,16 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
 
 
-    public Neighbour getNeighbourById(long userId){
+    public List<Neighbour> getNeighbourById(long userId){
+        List<Neighbour> currentNeighbours = new ArrayList<Neighbour>();
 
         for (int i = 0; i< neighbours.size(); i++){
 
             neighbours.get(i);
 
             if (neighbours.get(i).getId() == userId)
-                return neighbours.get(i);
+                currentNeighbours.add(neighbours.get(i));
         }
-        return null;
+        return currentNeighbours;
     }
 }

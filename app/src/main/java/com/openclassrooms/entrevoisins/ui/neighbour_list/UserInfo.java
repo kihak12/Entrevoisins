@@ -44,7 +44,7 @@ public class UserInfo extends AppCompatActivity {
 
         Intent intent = getIntent();
         long userId = intent.getLongExtra("userId", 0);
-        mApiService.getNeighbourById(userId);
+        mApiService.getNeighbourById(5);
 
 
 
