@@ -44,19 +44,34 @@ public class UserInfo extends AppCompatActivity {
 
         Intent intent = getIntent();
         long userId = intent.getLongExtra("userId", 0);
-        mApiService.getNeighbourById(5);
+        //mApiService.getNeighbourById(5);
 
 
 
         //String name = mNeighbours.toString();
         String name = "Jeff";
+        String phone = "0689563215";
+        String location = "Paris";
+        String about = "basket";
 
+        ///NAME USER///
         TextView nameView1 = (TextView) findViewById(R.id.textView1);
         nameView1.setText(name);
 
         TextView nameView2 = (TextView) findViewById(R.id.textView2);
         nameView2.setText(name);
 
+        ///LOCATION USER///
+        TextView userLocation = (TextView) findViewById(R.id.user_location);
+        userLocation.setText(location);
+
+        ///PHONE USER///
+        TextView phoneUser = (TextView) findViewById(R.id.phoneNumber);
+        phoneUser.setText(phone);
+
+        ///ABOUT USER///
+        TextView aboutUser = (TextView) findViewById(R.id.about_user);
+        aboutUser.setText(about);
 
 
 

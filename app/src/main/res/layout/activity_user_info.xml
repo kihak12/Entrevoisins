@@ -91,9 +91,9 @@
                 tools:srcCompat="@android:drawable/ic_menu_mylocation" />
 
             <TextView
+                android:id="@+id/user_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/location"
                 android:textSize="15sp"
                 android:layout_marginTop="11sp"
                 android:layout_marginLeft="5dp"/>
@@ -113,9 +113,9 @@
                 app:srcCompat="@android:drawable/stat_sys_phone_call" />
 
             <TextView
+                android:id="@+id/user_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/phone_number"
                 android:textSize="15sp"
                 android:layout_marginTop="14sp"
                 android:layout_marginLeft="5dp"/>
@@ -169,13 +169,13 @@
 
 
         <TextView
+            android:id="@+id/about_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="80dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:text="@string/info_me"
             android:textSize="13sp" />
 
     </LinearLayout>
