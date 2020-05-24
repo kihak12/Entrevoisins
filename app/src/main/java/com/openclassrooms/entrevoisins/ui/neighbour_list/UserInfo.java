@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.bumptech.glide.Glide;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
@@ -53,6 +54,10 @@ public class UserInfo extends AppCompatActivity {
         String phone = "0689563215";
         String location = "Paris";
         String about = "basket";
+
+
+        ///AVATAR USER///
+
 
         ///NAME USER///
         TextView nameView1 = (TextView) findViewById(R.id.textView1);
