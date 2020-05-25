@@ -22,7 +22,6 @@
         android:id="@+id/item_avatar"
         android:layout_width="412dp"
         android:layout_height="310dp"
-        android:background="@drawable/avatar_user"
         android:cropToPadding="@drawable/avatar_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

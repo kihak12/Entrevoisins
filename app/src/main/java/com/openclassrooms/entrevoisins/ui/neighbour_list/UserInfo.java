@@ -6,24 +6,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
-import com.openclassrooms.entrevoisins.service.DummyNeighbourApiService;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import butterknife.BindView;
 
 
 public class UserInfo extends AppCompatActivity {
 
 
     private ImageButton mainMenu;
-    private NeighbourApiService mApiService;
+    public NeighbourApiService mApiService;
+
+    @BindView(R.id.item_avatar)
+    public ImageView mNeighbourAvatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,19 +49,17 @@ public class UserInfo extends AppCompatActivity {
 
         Intent intent = getIntent();
         long userId = intent.getLongExtra("userId", 0);
-        //mApiService.getNeighbourById(5);
+        Neighbour neighbour = mApiService.getNeighbourById(userId);
 
 
-
-        //String name = mNeighbours.toString();
-        String name = "Jeff";
-        String phone = "0689563215";
-        String location = "Paris";
-        String about = "basket";
+        String name = neighbour.getName();
+        String phone = neighbour.getPhoneNumber();
+        String location = neighbour.getAddress();
+        String about = neighbour.getAboutMe();
 
 
         ///AVATAR USER///
-
+        Glide.with(this).load(neighbour.getAvatarUrl()).into(mNeighbourAvatar);
 
         ///NAME USER///
         TextView nameView1 = (TextView) findViewById(R.id.textView1);
@@ -77,9 +79,6 @@ public class UserInfo extends AppCompatActivity {
         ///ABOUT USER///
         TextView aboutUser = (TextView) findViewById(R.id.about_user);
         aboutUser.setText(about);
-
-
-
 
     }
 }

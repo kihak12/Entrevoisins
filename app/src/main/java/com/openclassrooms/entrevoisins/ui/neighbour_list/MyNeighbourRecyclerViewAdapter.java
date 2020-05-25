@@ -64,6 +64,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             }
         });
 
+
         holder.mUserInfo.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

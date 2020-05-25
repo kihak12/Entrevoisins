@@ -29,11 +29,9 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     public List<Neighbour> getNeighboursFavorite() {
         List<Neighbour> neighboursFavoriteList = new ArrayList<Neighbour>();
 
-        for (int i = 0; i< neighbours.size(); i++)
-        {
+        for (int i = 0; i< neighbours.size(); i++) {
             neighbours.get(i);
-            if (neighbours.get(i).isFavorite())
-            {
+            if (neighbours.get(i).isFavorite()) {
                 neighboursFavoriteList.add(neighbours.get(i));
             }
 
@@ -61,16 +59,13 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
 
 
-    public List<Neighbour> getNeighbourById(long userId){
-        List<Neighbour> currentNeighbours = new ArrayList<Neighbour>();
+    public Neighbour getNeighbourById(long userId){
 
         for (int i = 0; i< neighbours.size(); i++){
-
-            neighbours.get(i);
-
-            if (neighbours.get(i).getId() == userId)
-                currentNeighbours.add(neighbours.get(i));
+            if (neighbours.get(i).getId() == userId) {
+                return neighbours.get(i);
+            }
         }
-        return currentNeighbours;
+        return null;
     }
 }
