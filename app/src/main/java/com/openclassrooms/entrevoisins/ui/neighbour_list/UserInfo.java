@@ -11,8 +11,10 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
@@ -22,9 +24,8 @@ import butterknife.BindView;
 
 public class UserInfo extends AppCompatActivity {
 
-
     private ImageButton mainMenu;
-    public NeighbourApiService mApiService;
+    private NeighbourApiService mApiService;
 
     @BindView(R.id.item_avatar)
     public ImageView mNeighbourAvatar;
@@ -49,36 +50,35 @@ public class UserInfo extends AppCompatActivity {
 
         Intent intent = getIntent();
         long userId = intent.getLongExtra("userId", 0);
+        mApiService = DI.getNeighbourApiService();
         Neighbour neighbour = mApiService.getNeighbourById(userId);
 
-
-        String name = neighbour.getName();
-        String phone = neighbour.getPhoneNumber();
-        String location = neighbour.getAddress();
-        String about = neighbour.getAboutMe();
-
-
         ///AVATAR USER///
-        Glide.with(this).load(neighbour.getAvatarUrl()).into(mNeighbourAvatar);
+        Glide.with(this)
+                .load(neighbour.getAvatarUrl())
+                .into(mNeighbourAvatar);
 
         ///NAME USER///
         TextView nameView1 = (TextView) findViewById(R.id.textView1);
-        nameView1.setText(name);
+        nameView1.setText(neighbour.getName());
 
         TextView nameView2 = (TextView) findViewById(R.id.textView2);
-        nameView2.setText(name);
+        nameView2.setText(neighbour.getName());
 
         ///LOCATION USER///
         TextView userLocation = (TextView) findViewById(R.id.user_location);
-        userLocation.setText(location);
+        userLocation.setText(neighbour.getAddress());
 
         ///PHONE USER///
-        TextView phoneUser = (TextView) findViewById(R.id.phoneNumber);
-        phoneUser.setText(phone);
+        TextView phoneUser = (TextView) findViewById(R.id.user_phone);
+        phoneUser.setText(neighbour.getPhoneNumber());
 
         ///ABOUT USER///
         TextView aboutUser = (TextView) findViewById(R.id.about_user);
-        aboutUser.setText(about);
+        aboutUser.setText(neighbour.getAboutMe());
 
+        if (neighbour.isFavorite() == false)
+            neighbour.setFavorite(true);
+        else neighbour.setFavorite(false);
     }
 }
