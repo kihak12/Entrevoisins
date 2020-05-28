@@ -23,7 +23,6 @@ import static com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAsserti
 import static org.hamcrest.core.IsNull.notNullValue;
 
 
-
 /**
  * Test class for list of neighbours
  */
@@ -66,6 +65,6 @@ public class NeighboursListTest {
         onView(ViewMatchers.withId(R.id.list_neighbours))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(1, new DeleteViewAction()));
         // Then : the number of element is 11
-        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT-1));
+        onView(ViewMatchers.withId(R.id.list_neighbours)).check(withItemCount(ITEMS_COUNT - 1));
     }
 }

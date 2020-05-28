@@ -1,14 +1,7 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import android.app.Activity;
-import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.service.autofill.FillEventHistory;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,13 +18,10 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.lang.ref.Reference;
-import java.util.EventObject;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
@@ -65,12 +55,12 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         });
 
 
-        holder.mUserInfo.setOnClickListener(new View.OnClickListener(){
+        holder.mUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent userInfo = new Intent(v.getContext(), UserInfo.class);
                 userInfo.putExtra("userId", neighbour.getId());
-                ActivityCompat.startActivity(v.getContext() , userInfo, null);
+                ActivityCompat.startActivity(v.getContext(), userInfo, null);
             }
         });
 

@@ -10,14 +10,17 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
         super(fm);
     }
 
-   @Override
-    public Fragment getItem(int position){
-        switch (position){
-            case 0 : return NeighbourFragment.newInstance();
+    @Override
+    public Fragment getItem(int position) {
+        switch (position) {
+            case 0:
+                return NeighbourFragment.newInstance();
 
-            case 1 : return NeighbourFavoriteFragment.newInstance();
+            case 1:
+                return NeighbourFavoriteFragment.newInstance();
 
-            default: return null;
+            default:
+                return null;
         }
     }
 
@@ -35,6 +38,7 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
     /**
      * get the number of pages
+     *
      * @return
      */
     @Override
