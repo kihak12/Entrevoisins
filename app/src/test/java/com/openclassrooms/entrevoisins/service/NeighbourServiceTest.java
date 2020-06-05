@@ -69,7 +69,6 @@ public class NeighbourServiceTest {
     public void deleteNeighbourWithSuccess() {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
         service.deleteNeighbour(neighbourToDelete);
-        assertFalse(service.getNeighbours().contains(neighbourToDelete))
-        ;
+        assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
 }

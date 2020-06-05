@@ -22,7 +22,6 @@
         android:id="@+id/item_avatar"
         android:layout_width="250dp"
         android:layout_height="230dp"
-        android:background="@drawable/avatar_user"
         android:cropToPadding="@drawable/avatar_user"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +44,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:text="@string/user"
         android:textColor="@color/white"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/item_avatar"
@@ -69,10 +67,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:text="@string/user"
             android:textSize="25sp" />
 
         <LinearLayout
@@ -90,11 +88,11 @@
                 tools:srcCompat="@android:drawable/ic_menu_mylocation" />
 
             <TextView
+                android:id="@+id/user_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="14sp"
-                android:text="@string/location"
                 android:textSize="15sp" />
 
         </LinearLayout>
@@ -112,11 +110,11 @@
                 app:srcCompat="@android:drawable/stat_sys_phone_call" />
 
             <TextView
+                android:id="@+id/user_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="14sp"
-                android:text="@string/phone_number"
                 android:textSize="15sp" />
 
         </LinearLayout>
@@ -165,12 +163,12 @@
             android:textSize="25sp" />
 
         <TextView
+            android:id="@+id/about_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:minHeight="50dp"
             android:padding="6dp"
-            android:text="@string/info_me"
             android:textSize="14sp" />
 
     </LinearLayout>
