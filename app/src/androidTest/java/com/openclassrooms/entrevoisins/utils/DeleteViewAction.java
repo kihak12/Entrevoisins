@@ -5,6 +5,7 @@ import android.support.test.espresso.ViewAction;
 import android.view.View;
 
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.model.Neighbour;
 
 import org.hamcrest.Matcher;
 

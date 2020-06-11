@@ -1,7 +1,9 @@
 package com.openclassrooms.entrevoisins.service;
 
+import android.view.View;
 import android.widget.ScrollView;
 
+import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
@@ -41,28 +43,9 @@ public class NeighbourServiceTest {
     public void getNeighbourInfoWithSuccess() {
         Long userTest = new Long(1);
         Neighbour neighbourtest = service.getNeighbourById(userTest);
+        assertFalse(neighbourtest.equals(neighbourtest.getName()));
+        neighbourtest.getName().equals("Caroline");
 
-        neighbourtest.getName();
-        neighbourtest.getAvatarUrl();
-        neighbourtest.isFavorite();
-        neighbourtest.getId();
-        neighbourtest.getAboutMe();
-        neighbourtest.getAddress();
-        neighbourtest.getPhoneNumber();
-
-    }
-
-    @Test
-    public void getOnlyFavorite() {
-        List<Neighbour> neighboursTest = service.getNeighboursFavorite();
-        List<Neighbour> neighbourF = new ArrayList<Neighbour>();
-
-        for (int i = 0; i < neighboursTest.size(); i++) {
-            neighboursTest.get(i);
-            if (neighboursTest.get(i).isFavorite()) {
-                neighbourF.add(neighboursTest.get(i));
-            }
-        }
     }
 
     @Test
