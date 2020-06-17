@@ -20,6 +20,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 /**
  * Unit test on Neighbour service
@@ -50,17 +51,17 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void getOnlyFavoriteWithSucces() {
+    public void getOnlyFavoriteWithSuccess() {
         List<Neighbour> neighbourTest = service.getNeighboursFavorite();
 
-        Neighbour john = new Neighbour(1, "John", "https://i.pravatar.cc/150?u=a042581f4e29026704d", "Saint-Pierre-du-Mont ; 5km",
+        Neighbour john = new Neighbour(99, "John", "https://i.pravatar.cc/150?u=a042581f4e29026704d", "Saint-Pierre-du-Mont ; 5km",
                 "+33 6 86 57 90 14", "belote et le tarot..", true);
 
         neighbourTest.add(john);
 
-        for(int y = 0 , m = 10 ; y < neighbourTest.size() || y > m ; y++){
+        for(int y = 0 ; y < neighbourTest.size() ; y++){
             if (!neighbourTest.get(y).isFavorite())
-                getOnlyFavoriteWithSucces();
+                fail();
         }
 
 
