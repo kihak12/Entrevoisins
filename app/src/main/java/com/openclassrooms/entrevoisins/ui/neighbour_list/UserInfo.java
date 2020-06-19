@@ -1,8 +1,10 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,7 +26,9 @@ public class UserInfo extends AppCompatActivity {
     private NeighbourApiService mApiService;
     public ImageView mNeighbourAvatar;
     private FloatingActionButton mSetFavorite;
+    private ImageView favoriteTrue;
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,7 @@ public class UserInfo extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.hide();
 
+        this.favoriteTrue = findViewById(R.id.favorite_true);
         this.mainMenu = findViewById(R.id.mainMenu);
 
         mainMenu.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +56,12 @@ public class UserInfo extends AppCompatActivity {
         ///AVATAR USER///
         mNeighbourAvatar = findViewById(R.id.item_avatar);
         Glide.with(this).load(neighbour.getAvatarUrl()).centerCrop().into(mNeighbourAvatar);
+
+        /////Favorite Icon//////
+        if (neighbour.isFavorite() == true)
+            favoriteTrue.setVisibility(View.VISIBLE);
+
+        else favoriteTrue.setVisibility(View.INVISIBLE);
 
         ///NAME USER///
         TextView nameView1 = (TextView) findViewById(R.id.textView1);
@@ -75,9 +86,14 @@ public class UserInfo extends AppCompatActivity {
         mSetFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (neighbour.isFavorite() == false)
+                if (neighbour.isFavorite() == false){
                     neighbour.setFavorite(true);
-                else neighbour.setFavorite(false);
+                    favoriteTrue.setVisibility(View.VISIBLE);
+                }
+                else {
+                    neighbour.setFavorite(false);
+                    favoriteTrue.setVisibility(View.INVISIBLE);
+                }
             }
         });
 

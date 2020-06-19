@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:clickable="false"
-    tools:context=".ui.neighbour_list.UserInfo">
+    tools:context=".ui.neighbour_list.UserInfo"
+    tools:visibility="visible">
 
     <Toolbar
         android:id="@+id/returnToMainMenu"
@@ -179,19 +180,35 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/favorite_true"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_star_yellow_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/action_favorite"
+        app:layout_constraintEnd_toEndOf="@+id/action_favorite"
+        app:layout_constraintStart_toStartOf="@+id/action_favorite"
+        app:layout_constraintTop_toTopOf="@+id/action_favorite"
+        tools:ignore="ContentDescription" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/action_favorite"
+        android:src="@drawable/ic_star_border_yellow_24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_marginTop="8dp"
+        android:visibility="visible"
         app:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.907"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1"
-        app:maxImageSize="30sp"
-        app:srcCompat="@drawable/ic_star_yellow_24dp" />
+        app:maxImageSize="40sp"/>
+
+
+
+
 
 
 </android.support.constraint.ConstraintLayout>

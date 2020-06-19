@@ -48,6 +48,7 @@ public class NeighbourServiceTest {
         Neighbour neighbourtest = service.getNeighbourById(userTest);
         assertFalse(neighbourtest.equals(neighbourtest.getName()));
         neighbourtest.getName().equals("Caroline");
+        equals(neighbourtest.getName());
     }
 
     @Test
