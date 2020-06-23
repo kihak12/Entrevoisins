@@ -46,9 +46,8 @@ public class NeighbourServiceTest {
     public void getNeighbourInfoWithSuccess() {
         Long userTest = new Long(1);
         Neighbour neighbourtest = service.getNeighbourById(userTest);
-        assertFalse(neighbourtest.equals(neighbourtest.getName()));
-        neighbourtest.getName().equals("Caroline");
-        equals(neighbourtest.getName());
+        if (!neighbourtest.getName().equals("Caroline"))
+            fail();
     }
 
     @Test

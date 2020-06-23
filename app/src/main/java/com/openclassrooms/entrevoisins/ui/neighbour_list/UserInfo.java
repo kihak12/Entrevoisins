@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,7 +25,6 @@ public class UserInfo extends AppCompatActivity {
     private NeighbourApiService mApiService;
     public ImageView mNeighbourAvatar;
     private FloatingActionButton mSetFavorite;
-    private ImageView favoriteTrue;
 
     @SuppressLint("CutPasteId")
     @Override
@@ -38,8 +36,8 @@ public class UserInfo extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.hide();
 
-        this.favoriteTrue = findViewById(R.id.favorite_true);
         this.mainMenu = findViewById(R.id.mainMenu);
+        this.mSetFavorite = findViewById(R.id.action_favorite);
 
         mainMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,12 +54,6 @@ public class UserInfo extends AppCompatActivity {
         ///AVATAR USER///
         mNeighbourAvatar = findViewById(R.id.item_avatar);
         Glide.with(this).load(neighbour.getAvatarUrl()).centerCrop().into(mNeighbourAvatar);
-
-        /////Favorite Icon//////
-        if (neighbour.isFavorite() == true)
-            favoriteTrue.setVisibility(View.VISIBLE);
-
-        else favoriteTrue.setVisibility(View.INVISIBLE);
 
         ///NAME USER///
         TextView nameView1 = (TextView) findViewById(R.id.textView1);
@@ -82,17 +74,25 @@ public class UserInfo extends AppCompatActivity {
         TextView aboutUser = (TextView) findViewById(R.id.about_user);
         aboutUser.setText(neighbour.getAboutMe());
 
-        this.mSetFavorite = findViewById(R.id.action_favorite);
+        /////Icon Favorite Button/////
+        if (neighbour.isFavorite()) {
+            mSetFavorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_yellow_24dp));
+        }
+        else {
+            mSetFavorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_border_yellow_24dp));
+        }
+
+
         mSetFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (neighbour.isFavorite() == false){
+                if (!neighbour.isFavorite()){
                     neighbour.setFavorite(true);
-                    favoriteTrue.setVisibility(View.VISIBLE);
+                    mSetFavorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_yellow_24dp));
                 }
                 else {
                     neighbour.setFavorite(false);
-                    favoriteTrue.setVisibility(View.INVISIBLE);
+                    mSetFavorite.setImageDrawable(getResources().getDrawable(R.drawable.ic_star_border_yellow_24dp));
                 }
             }
         });

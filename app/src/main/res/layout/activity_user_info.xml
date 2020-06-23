@@ -187,13 +187,15 @@
         android:src="@drawable/ic_star_yellow_24dp"
         app:layout_constraintBottom_toBottomOf="@+id/action_favorite"
         app:layout_constraintEnd_toEndOf="@+id/action_favorite"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/action_favorite"
         app:layout_constraintTop_toTopOf="@+id/action_favorite"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="ContentDescription" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/action_favorite"
-        android:src="@drawable/ic_star_border_yellow_24dp"
+        app:backgroundTintMode="src_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
@@ -204,7 +206,7 @@
         app:layout_constraintHorizontal_bias="0.907"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1"
-        app:maxImageSize="40sp"/>
+        app:maxImageSize="40sp" />
 
 
 
