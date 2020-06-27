@@ -40,7 +40,7 @@ public class NeighbourServiceTest {
         Long userTest = new Long(1);
         Neighbour neighbourtest = service.getNeighbourById(userTest);
         if (!neighbourtest.getName().equals("Caroline"))
-            fail();
+            assertFalse(true);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class NeighbourServiceTest {
 
         for(int y = 0 ; y < neighbourTest.size() ; y++){
             if (!neighbourTest.get(y).isFavorite())
-                fail();
+                assertFalse(true);
         }
 
 
