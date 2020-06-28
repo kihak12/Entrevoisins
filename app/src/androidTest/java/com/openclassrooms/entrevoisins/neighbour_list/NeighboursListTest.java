@@ -10,6 +10,7 @@ import android.support.v4.app.INotificationSideChannel;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.view.WindowId;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
@@ -24,6 +25,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -87,18 +89,6 @@ public class NeighboursListTest {
         // Then : the number of element is 11;
     }
 
-    @Test
-    public void listNeighbourActivityTest() {
-        onView(allOf(withId(R.id.item_list_name),
-                childAtPosition(
-                        childAtPosition(
-                                withId(R.id.list_neighbours),
-                                0),
-                        1),
-                isDisplayed())).perform(click());
-
-
-    }
 
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
