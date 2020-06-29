@@ -9,8 +9,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
@@ -40,25 +42,23 @@ public class NeighbourServiceTest {
         Long userTest = new Long(1);
         Neighbour neighbourtest = service.getNeighbourById(userTest);
         if (!neighbourtest.getName().equals("Caroline"))
-            assertFalse(true);
+            fail();
     }
 
     @Test
-    public void getOnlyFavoriteWithSuccess() {
-        List<Neighbour> neighbourTest = service.getNeighboursFavorite();
+    public void getFavoriteWithSucces(){
+        List<Neighbour> neighboursFav = service.getNeighboursFavorite();
+        List<Neighbour> neighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
+        List<Neighbour> neighboursFavExpected = new ArrayList<>();
 
-        Neighbour john = new Neighbour(99, "John", "https://i.pravatar.cc/150?u=a042581f4e29026704d", "Saint-Pierre-du-Mont ; 5km",
-                "+33 6 86 57 90 14", "belote et le tarot..", true);
 
-        neighbourTest.add(john);
-
-        for(int y = 0 ; y < neighbourTest.size() ; y++){
-            if (!neighbourTest.get(y).isFavorite())
-                assertFalse(true);
+        for (Neighbour neighbour : neighbours) {
+            if (neighbour.isFavorite())
+                neighboursFavExpected.add(neighbour);
         }
-
-
+        assertEquals(neighboursFavExpected,neighboursFav);
     }
+
 
     @Test
     public void deleteNeighbourWithSuccess() {

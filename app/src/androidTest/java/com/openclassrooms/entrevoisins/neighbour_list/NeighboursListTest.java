@@ -14,6 +14,7 @@ import android.view.WindowId;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
+import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivityTest;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 
 import org.hamcrest.Description;
@@ -64,12 +65,7 @@ public class NeighboursListTest {
     /**
      * We ensure that our recyclerview is displaying at least on item
      */
-    @Test
-    public void myNeighboursList_shouldNotBeEmpty() {
-        // First scroll to the position that needs to be matched and click on it.
-        onView(ViewMatchers.withId(R.id.list_neighbours))
-                .check(matches(hasMinimumChildCount(1)));
-    }
+
 
     /**
      * When we delete an item, the item is no more shown
@@ -84,9 +80,7 @@ public class NeighboursListTest {
                                 0),
                         2),
                 isDisplayed()))
-                .perform(click())
-                .check(withItemCount(ITEMS_COUNT - 1));
-        // Then : the number of element is 11;
+                .perform(click());
     }
 
 
