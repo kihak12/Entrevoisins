@@ -14,7 +14,6 @@ import android.view.WindowId;
 
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivityTest;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
 
 import org.hamcrest.Description;
@@ -47,29 +46,37 @@ import static org.hamcrest.core.IsNull.notNullValue;
 @RunWith(AndroidJUnit4.class)
 public class NeighboursListTest {
 
-    // This is fixed
-    private static int ITEMS_COUNT = 12;
-
-    private ListNeighbourActivity mActivity;
-
     @Rule
-    public ActivityTestRule<ListNeighbourActivity> mActivityRule =
-            new ActivityTestRule(ListNeighbourActivity.class);
+    public ActivityTestRule<ListNeighbourActivity> mActivityTestRule = new ActivityTestRule<>(ListNeighbourActivity.class);
 
-    @Before
-    public void setUp() {
-        mActivity = mActivityRule.getActivity();
-        assertThat(mActivity, notNullValue());
+
+    @Test
+    public void listNeighbourActivityTest() {
+        onView(allOf(withId(R.id.item_list_name),
+                childAtPosition(
+                        childAtPosition(
+                                withId(R.id.list_neighbours),
+                                0),
+                        1),
+                isDisplayed())).perform(click());
+
+        ViewInteraction textView = onView(
+                allOf(withId(R.id.textView1), withText("Caroline"),
+                        childAtPosition(
+                                childAtPosition(
+                                        allOf(withId(android.R.id.content),
+                                                childAtPosition(
+                                                        allOf(withId(R.id.decor_content_parent),
+                                                                childAtPosition(
+                                                                        IsInstanceOf.<View>instanceOf(android.widget.FrameLayout.class),
+                                                                        0)),
+                                                        0)),
+                                        0),
+                                3),
+                        isDisplayed()));
+        textView.check(matches(withText("Caroline")));
     }
 
-    /**
-     * We ensure that our recyclerview is displaying at least on item
-     */
-
-
-    /**
-     * When we delete an item, the item is no more shown
-     */
     @Test
     public void myNeighboursList_deleteAction_shouldRemoveItem() {
         // Given : We remove the element at position 2
@@ -82,7 +89,6 @@ public class NeighboursListTest {
                 isDisplayed()))
                 .perform(click());
     }
-
 
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
@@ -102,7 +108,5 @@ public class NeighboursListTest {
             }
         };
     }
-
-
 }
 
