@@ -27,6 +27,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.List;
+
 import static android.support.test.espresso.Espresso.onData;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -287,7 +289,7 @@ public class NeighboursListTest {
     }
 
     @Test
-    public void listNeighbourDeleteFavorite() {
+    public void removeFavoriteWithSuccess() {
         onView(allOf(withId(R.id.item_list_name),
                 childAtPosition(
                         childAtPosition(
@@ -296,7 +298,141 @@ public class NeighboursListTest {
                         1),
                 isDisplayed())).perform(click());
 
-        onView(allOf(withId(R.id.action_favorite))).perform(click());
+        ViewInteraction floatingActionButton = onView(
+                allOf(withId(R.id.action_favorite),
+                        childAtPosition(
+                                childAtPosition(
+                                        allOf(withId(android.R.id.content),
+                                                childAtPosition(
+                                                        allOf(withId(R.id.decor_content_parent),
+                                                                childAtPosition(
+                                                                        withClassName(is("android.widget.FrameLayout")),
+                                                                        0)),
+                                                        0)),
+                                        0),
+                                7),
+                        isDisplayed()));
+        floatingActionButton.perform(click());
+
+        ViewInteraction appCompatImageButton = onView(
+                allOf(withId(R.id.mainMenu),
+                        childAtPosition(
+                                childAtPosition(
+                                        allOf(withId(android.R.id.content),
+                                                childAtPosition(
+                                                        allOf(withId(R.id.decor_content_parent),
+                                                                childAtPosition(
+                                                                        withClassName(is("android.widget.FrameLayout")),
+                                                                        0)),
+                                                        0)),
+                                        0),
+                                2),
+                        isDisplayed()));
+        appCompatImageButton.perform(click());
+
+        ViewInteraction tabView = onView(
+                allOf(withContentDescription("Favorites"),
+                        childAtPosition(
+                                childAtPosition(
+                                        allOf(withId(R.id.tabs),
+                                                childAtPosition(
+                                                        allOf(withId(R.id.appbar),
+                                                                childAtPosition(
+                                                                        withId(R.id.main_content),
+                                                                        0)),
+                                                        1)),
+                                        0),
+                                1),
+                        isDisplayed()));
+        tabView.perform(click());
+
+        ViewInteraction viewPager = onView(
+                allOf(withId(R.id.container),
+                        childAtPosition(
+                                allOf(withId(R.id.main_content),
+                                        childAtPosition(
+                                                allOf(withId(android.R.id.content),
+                                                        childAtPosition(
+                                                                allOf(withId(R.id.action_bar_root),
+                                                                        childAtPosition(
+                                                                                withClassName(is("android.widget.FrameLayout")),
+                                                                                0)),
+                                                                1)),
+                                                0)),
+                                1),
+                        isDisplayed()));
+        viewPager.perform(swipeLeft());
+
+        ViewInteraction viewGroup = onView(
+                allOf(withId(R.id.item_user_info),
+                        childAtPosition(
+                                allOf(withId(R.id.list_neighbours),
+                                        withParent(allOf(withId(R.id.container),
+                                                childAtPosition(
+                                                        allOf(withId(R.id.main_content),
+                                                                childAtPosition(
+                                                                        withId(android.R.id.content),
+                                                                        0)),
+                                                        1)))),
+                                0),
+                        isDisplayed()));
+        viewGroup.check(matches(isDisplayed()));
+
+        ViewInteraction recyclerView2 =
+                onView(allOf(withId(R.id.item_list_name),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(R.id.list_neighbours),
+                                        0),
+                                1),
+                        isDisplayed())).perform(click());
+
+        ViewInteraction floatingActionButton2 = onView(
+                allOf(withId(R.id.action_favorite),
+                        childAtPosition(
+                                childAtPosition(
+                                        allOf(withId(android.R.id.content),
+                                                childAtPosition(
+                                                        allOf(withId(R.id.decor_content_parent),
+                                                                childAtPosition(
+                                                                        withClassName(is("android.widget.FrameLayout")),
+                                                                        0)),
+                                                        0)),
+                                        0),
+                                7),
+                        isDisplayed()));
+        floatingActionButton2.perform(click());
+
+        ViewInteraction appCompatImageButton2 = onView(
+                allOf(withId(R.id.mainMenu),
+                        childAtPosition(
+                                childAtPosition(
+                                        allOf(withId(android.R.id.content),
+                                                childAtPosition(
+                                                        allOf(withId(R.id.decor_content_parent),
+                                                                childAtPosition(
+                                                                        withClassName(is("android.widget.FrameLayout")),
+                                                                        0)),
+                                                        0)),
+                                        0),
+                                2),
+                        isDisplayed()));
+        appCompatImageButton2.perform(click());
+
+        ViewInteraction recyclerView3 = onView(
+                allOf(withId(R.id.list_neighbours),
+                        withParent(allOf(withId(R.id.container),
+                                childAtPosition(
+                                        allOf(withId(R.id.main_content),
+                                                childAtPosition(
+                                                        allOf(withId(android.R.id.content),
+                                                                childAtPosition(
+                                                                        withId(R.id.action_bar_root),
+                                                                        0)),
+                                                        0)),
+                                        1))),
+                        isDisplayed()));
+        recyclerView3.check(doesNotExist());
     }
 
 
