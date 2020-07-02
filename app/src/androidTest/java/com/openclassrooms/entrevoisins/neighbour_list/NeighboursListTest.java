@@ -13,8 +13,10 @@ import android.view.ViewParent;
 import android.view.WindowId;
 
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourActivity;
 import com.openclassrooms.entrevoisins.utils.DeleteViewAction;
+import com.openclassrooms.entrevoisins.utils.RecyclerViewItemCountAssertion;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -90,7 +92,21 @@ public class NeighboursListTest {
                 .perform(click());
     }
 
-    private static Matcher<View> childAtPosition(
+    @Test
+    public void listNeighbourDeleteFavorite() {
+        onView(allOf(withId(R.id.item_list_name),
+                childAtPosition(
+                        childAtPosition(
+                                withId(R.id.list_neighbours),
+                                0),
+                        1),
+                isDisplayed())).perform(click());
+
+        onView(allOf(withId(R.id.action_favorite))).perform(click());
+    }
+
+
+        private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
 
         return new TypeSafeMatcher<View>() {
