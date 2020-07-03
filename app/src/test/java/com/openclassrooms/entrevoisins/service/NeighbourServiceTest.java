@@ -49,7 +49,7 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void getFavoriteWithSucces(){
+    public void getFavoriteWithSuccess(){
         List<Neighbour> neighboursFav = service.getNeighboursFavorite();
         List<Neighbour> neighbours = DummyNeighbourGenerator.DUMMY_NEIGHBOURS;
         List<Neighbour> neighboursFavExpected = new ArrayList<>();
